@@ -22,6 +22,19 @@ st.markdown("""
     .stApp {
         background-color: #0E1117;
     }
+    /* Hide Fork button and menu */
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+    .stDeployButton {
+        display: none;
+    }
+    #MainMenu {
+        visibility: hidden;
+    }
+    footer {
+        visibility: hidden;
+    }
     h1 {
         color: #FF4B4B;
         text-align: center;
