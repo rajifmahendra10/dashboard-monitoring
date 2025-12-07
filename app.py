@@ -36,7 +36,7 @@ st.markdown("""
         visibility: hidden;
     }
     h1 {
-        color: #D32F2F;
+        color: #1E1E1E !important;
         text-align: center;
         font-weight: bold;
         padding: 20px 0;
@@ -44,14 +44,25 @@ st.markdown("""
         margin-bottom: 30px;
     }
     h2 {
-        color: #1E1E1E;
+        color: #1E1E1E !important;
         border-left: 5px solid #D32F2F;
         padding-left: 15px;
         margin-top: 30px;
     }
     h3 {
-        color: #D32F2F;
+        color: #1E1E1E !important;
         margin-top: 20px;
+    }
+    /* Override Streamlit default text colors */
+    .stMarkdown, .stMarkdown p, .stMarkdown span {
+        color: #1E1E1E !important;
+    }
+    /* Make metric labels visible */
+    [data-testid="stMetricLabel"] {
+        color: #424242 !important;
+    }
+    [data-testid="stMetricValue"] {
+        color: #1E1E1E !important;
     }
     .metric-container {
         background-color: #F5F5F5;
@@ -302,7 +313,7 @@ Suatu bencana harus ditetapkan sebagai <strong>Bencana Nasional</strong> apabila
 <div style="background-color: #D32F2F; padding: 20px; border-radius: 5px; margin-top: 20px;">
 <h3 style="color: white; margin: 0; text-align: center;">⚠️ KESIMPULAN ⚠️</h3>
 <p style="color: white; font-size: 18px; text-align: center; margin: 10px 0 0 0; font-weight: bold;">
-KESEMUA 6 KRITERIA TERPENUHI. Peristiwa ini SECARA HUKUM MEMENUHI SYARAT sebagai Bencana Nasional yang memerlukan penetapan Presiden segera dan mobilisasi sumber daya nasional.
+KESEMUA 6 KRITERIA TERPENUHI.
 </p>
 </div>
 </div>
