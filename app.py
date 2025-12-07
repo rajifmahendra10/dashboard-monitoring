@@ -13,14 +13,14 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Custom CSS for Dark Mode and Professional Styling
+# Custom CSS for Light Mode and Professional Styling
 st.markdown("""
     <style>
     .main {
-        background-color: #0E1117;
+        background-color: #FFFFFF;
     }
     .stApp {
-        background-color: #0E1117;
+        background-color: #FFFFFF;
     }
     /* Hide Fork button and menu */
     header[data-testid="stHeader"] {
@@ -36,32 +36,32 @@ st.markdown("""
         visibility: hidden;
     }
     h1 {
-        color: #FF4B4B;
+        color: #D32F2F;
         text-align: center;
         font-weight: bold;
         padding: 20px 0;
-        border-bottom: 3px solid #FF4B4B;
+        border-bottom: 3px solid #D32F2F;
         margin-bottom: 30px;
     }
     h2 {
-        color: #FAFAFA;
-        border-left: 5px solid #FF4B4B;
+        color: #1E1E1E;
+        border-left: 5px solid #D32F2F;
         padding-left: 15px;
         margin-top: 30px;
     }
     h3 {
-        color: #FF4B4B;
+        color: #D32F2F;
         margin-top: 20px;
     }
     .metric-container {
-        background-color: #1E1E1E;
+        background-color: #F5F5F5;
         padding: 20px;
         border-radius: 10px;
-        border: 2px solid #FF4B4B;
+        border: 2px solid #D32F2F;
         text-align: center;
     }
     .urgent-note {
-        background-color: #FF4B4B;
+        background-color: #D32F2F;
         color: white;
         padding: 15px;
         border-radius: 5px;
@@ -70,14 +70,28 @@ st.markdown("""
         margin: 20px 0;
     }
     .criteria-box {
-        background-color: #1E1E1E;
+        background-color: #F9F9F9;
         padding: 20px;
         border-radius: 10px;
-        border-left: 5px solid #FF4B4B;
+        border-left: 5px solid #D32F2F;
         margin: 15px 0;
+        color: #1E1E1E;
     }
     .stDataFrame {
-        background-color: #1E1E1E;
+        background-color: #FFFFFF;
+    }
+    /* Better mobile responsiveness */
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        h2 {
+            font-size: 1.2rem;
+        }
+        .metric-container {
+            padding: 15px;
+        }
+    }
     }
     </style>
     """, unsafe_allow_html=True)
@@ -142,14 +156,14 @@ df_regions = pd.DataFrame({
 st.dataframe(df_regions, use_container_width=True)
 
 st.markdown("""
-    <div style="background-color: #1E1E1E; padding: 10px; border-radius: 5px; margin-top: 10px; text-align: center;">
-    <small style="color: #FAFAFA;">📊 <strong>Sumber Data:</strong> 
+    <div style="background-color: #F5F5F5; padding: 10px; border-radius: 5px; margin-top: 10px; text-align: center; border: 1px solid #E0E0E0;">
+    <small style="color: #424242;">📊 <strong>Sumber Data:</strong> 
     <a href="https://www.liputan6.com/news/read/6230589/update-korban-bencana-sumatra-minggu-pagi-7-desember-2025-916-orang-meninggal-274-hilang" 
-    target="_blank" style="color: #FF4B4B;">Liputan6 - Update Korban Bencana Sumatra</a> | 
+    target="_blank" style="color: #D32F2F; text-decoration: none;">Liputan6 - Update Korban Bencana Sumatra</a> | 
     <a href="https://www.instagram.com/p/DR8kWZBk2Yq/" 
-    target="_blank" style="color: #FF4B4B;">Instagram Nasari</a> | 
+    target="_blank" style="color: #D32F2F; text-decoration: none;">Instagram Nasari</a> | 
     <a href="https://acehutarakab.bps.go.id/id/statistics-table/3/WVc0MGEyMXBkVFUxY25KeE9HdDZkbTQzWkVkb1p6MDkjMw==/jumlah-penduduk-menurut-kelompok-umur-dan-jenis-kelamin--ribu-jiwa--di-kabupaten-aceh-utara--2022.html" 
-    target="_blank" style="color: #FF4B4B;">BPS</a>
+    target="_blank" style="color: #D32F2F; text-decoration: none;">BPS</a>
     </small>
     </div>
     """, unsafe_allow_html=True)
@@ -182,7 +196,7 @@ with col1:
     fig_capacity.update_layout(
         title="Mengapa Pemerintah Daerah Kewalahan",
         yaxis_title="Skala (0-100)",
-        template="plotly_dark",
+        template="plotly_white",
         height=400,
         showlegend=False
     )
@@ -190,7 +204,7 @@ with col1:
     st.plotly_chart(fig_capacity, use_container_width=True)
     
     st.markdown("""
-        <div style="background-color: #1E1E1E; padding: 15px; border-radius: 5px; margin-top: 10px;">
+        <div style="background-color: #F5F5F5; padding: 15px; border-radius: 5px; margin-top: 10px; border: 1px solid #E0E0E0; color: #424242;">
         <strong>Analisis:</strong> Dampak bencana (90/100) jauh melampaui kapasitas pemerintah daerah (10/100), 
         menunjukkan ketidakmungkinan penanganan efektif tanpa intervensi tingkat nasional.
         </div>
@@ -215,7 +229,7 @@ with col2:
     )
     
     fig_pie.update_layout(
-        template="plotly_dark",
+        template="plotly_white",
         height=400
     )
     
@@ -228,7 +242,7 @@ st.markdown("### 🗺️ Peta Sebaran Dampak Geografis")
 m = folium.Map(
     location=[2.0, 98.5],
     zoom_start=7,
-    tiles='CartoDB dark_matter'
+    tiles='OpenStreetMap'
 )
 
 # Add markers for affected regions
@@ -265,13 +279,13 @@ st.markdown("## ⚖️ Justifikasi Hukum: Kriteria Bencana Nasional")
 
 st.markdown("""
 <div class="criteria-box">
-<h3 style="color: #FF4B4B; margin-top: 0;">Berdasarkan UU No. 24 Tahun 2007 tentang Penanggulangan Bencana</h3>
+<h3 style="color: #D32F2F; margin-top: 0;">Berdasarkan UU No. 24 Tahun 2007 tentang Penanggulangan Bencana</h3>
 
-<p style="color: #FAFAFA; font-size: 16px; line-height: 1.8;">
+<p style="color: #424242; font-size: 16px; line-height: 1.8;">
 Suatu bencana harus ditetapkan sebagai <strong>Bencana Nasional</strong> apabila memenuhi kriteria berikut:
 </p>
 
-<ol style="color: #FAFAFA; font-size: 15px; line-height: 2;">
+<ol style="color: #424242; font-size: 15px; line-height: 2;">
 <li><strong>Korban Jiwa Massal:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 916 meninggal + 274 hilang = 1.190+ korban</li>
 
 <li><strong>Dampak Lintas Provinsi:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 3 provinsi terdampak (Aceh, Sumatera Utara, Sumatera Barat)</li>
@@ -285,7 +299,7 @@ Suatu bencana harus ditetapkan sebagai <strong>Bencana Nasional</strong> apabila
 <li><strong>Kelumpuhan Ekonomi:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Kawasan pertanian terendam, jalur perdagangan terputus</li>
 </ol>
 
-<div style="background-color: #FF4B4B; padding: 20px; border-radius: 5px; margin-top: 20px;">
+<div style="background-color: #D32F2F; padding: 20px; border-radius: 5px; margin-top: 20px;">
 <h3 style="color: white; margin: 0; text-align: center;">⚠️ KESIMPULAN ⚠️</h3>
 <p style="color: white; font-size: 18px; text-align: center; margin: 10px 0 0 0; font-weight: bold;">
 KESEMUA 6 KRITERIA TERPENUHI. Peristiwa ini SECARA HUKUM MEMENUHI SYARAT sebagai Bencana Nasional yang memerlukan penetapan Presiden segera dan mobilisasi sumber daya nasional.
@@ -314,7 +328,7 @@ with col1:
         color_continuous_scale='Reds',
         labels={'Populasi 2024 Numeric': 'Populasi', 'Estimasi Korban': 'Korban'}
     )
-    fig_pop.update_layout(template="plotly_dark", height=400)
+    fig_pop.update_layout(template="plotly_white", height=400)
     st.plotly_chart(fig_pop, use_container_width=True)
 
 with col2:
@@ -328,7 +342,7 @@ with col2:
         text='Estimasi Korban',
         color_discrete_sequence=px.colors.sequential.OrRd
     )
-    fig_casualties.update_layout(template="plotly_dark", height=400)
+    fig_casualties.update_layout(template="plotly_white", height=400)
     fig_casualties.update_traces(textposition='outside')
     st.plotly_chart(fig_casualties, use_container_width=True)
 
@@ -336,7 +350,7 @@ with col2:
 st.markdown("---")
 
 st.markdown("""
-<div style="text-align: center; color: #888; padding: 20px; margin-top: 20px;">
-<small>Sumber Data: <a href="https://www.liputan6.com/news/read/6230589/update-korban-bencana-sumatra-minggu-pagi-7-desember-2025-916-orang-meninggal-274-hilang" target="_blank" style="color: #FF4B4B;">Liputan6</a>, <a href="https://www.instagram.com/p/DR8kWZBk2Yq/" target="_blank" style="color: #FF4B4B;">Instagram Nasari</a>, BPS (Desember 2025) | Dashboard dibuat untuk tujuan monitoring Data</small>
+<div style="text-align: center; color: #666; padding: 20px; margin-top: 20px;">
+<small>Sumber Data: <a href="https://www.liputan6.com/news/read/6230589/update-korban-bencana-sumatra-minggu-pagi-7-desember-2025-916-orang-meninggal-274-hilang" target="_blank" style="color: #D32F2F; text-decoration: none;">Liputan6</a>, <a href="https://www.instagram.com/p/DR8kWZBk2Yq/" target="_blank" style="color: #D32F2F; text-decoration: none;">Instagram Nasari</a>, BPS (Desember 2025) | Dashboard dibuat untuk tujuan monitoring Data</small>
 </div>
 """, unsafe_allow_html=True)
