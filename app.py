@@ -133,7 +133,7 @@ with col1:
     st.metric(
         label="💀 Total Kematian",
         value="964",
-        delta="+48 dalam 24 jam",
+        delta="Data BNPB Resmi",
         delta_color="inverse"
     )
 
@@ -141,8 +141,8 @@ with col2:
     st.metric(
         label="🔍 Warga Hilang",
         value="264",
-        delta="-10 (ditemukan)",
-        delta_color="normal"
+        delta="Masih pencarian",
+        delta_color="inverse"
     )
 
 with col3:
@@ -156,28 +156,28 @@ with col3:
 with col4:
     st.metric(
         label="🗺️ Provinsi Terdampak",
-        value="4",
-        delta="Riau: Siaga 1",
+        value="3",
+        delta="Sumut, Aceh, Sumbar",
         delta_color="inverse"
     )
 
 with col5:
     st.metric(
         label="⚠️ Status",
-        value="Bencana Lokal?",
+        value="Darurat Lokal",
         delta="Perlu Bencana Nasional",
         delta_color="inverse"
     )
 
 # Create DataFrame with specific data
-st.markdown("## 📍 Distribusi Korban per Provinsi (Update 10 Des 2025)")
+st.markdown("## 📍 Distribusi Korban per Provinsi (3 Provinsi Terdampak)")
 
 df_regions = pd.DataFrame({
-    'Provinsi': ['Sumatera Utara', 'Aceh', 'Sumatera Barat', 'Riau'],
-    'Korban Meninggal': [412, 325, 220, 7],
-    'Warga Hilang': [140, 85, 35, 4],
-    'Status': ['Lumpuh Total', 'Terisolir', 'Banjir Bandang', 'Siaga 1'],
-    'Skor Dampak': [98, 95, 90, 60]
+    'Provinsi': ['Sumatera Utara', 'Aceh', 'Sumatera Barat'],
+    'Korban Meninggal': [430, 314, 220],  # Total: 964
+    'Warga Hilang': [140, 85, 39],  # Total: 264
+    'Status': ['Lumpuh Total', 'Terisolir', 'Banjir Bandang'],
+    'Skor Dampak': [98, 95, 90]
 })
 
 # Display DataFrame with source link
@@ -280,11 +280,11 @@ with col1:
 
 # Pie Chart - Casualties Distribution by Province
 with col2:
-    st.markdown("### 💔 Distribusi Korban per Provinsi")
+    st.markdown("### 💔 Distribusi Korban (3 Provinsi)")
     
     province_casualties = pd.DataFrame({
-        'Provinsi': ['Sumatera Utara', 'Aceh', 'Sumatera Barat', 'Riau'],
-        'Korban': [412, 325, 220, 7]  # Total: 964
+        'Provinsi': ['Sumatera Utara', 'Aceh', 'Sumatera Barat'],
+        'Korban': [430, 314, 220]  # Total: 964
     })
     
     fig_pie = px.pie(
@@ -292,8 +292,8 @@ with col2:
         values='Korban',
         names='Provinsi',
         title='Total Korban Jiwa: 964',
-        color_discrete_sequence=['#B71C1C', '#D32F2F', '#FF5252', '#FFB74D'],
-        hole=0.3
+        color_discrete_sequence=['#8B0000', '#D32F2F', '#FF5252'],
+        hole=0.4
     )
     
     fig_pie.update_layout(
@@ -304,36 +304,31 @@ with col2:
     st.plotly_chart(fig_pie, use_container_width=True)
 
 # Map Visualization
-st.markdown("### 🗺️ Peta Sebaran Dampak Geografis (4 Provinsi)")
+st.markdown("### 🗺️ Peta Sebaran Dampak Geografis (3 Provinsi)")
 
 # Create Folium map centered on Sumatera
 m = folium.Map(
-    location=[1.5, 99.5],
+    location=[2.0, 99.0],
     zoom_start=6,
-    tiles='OpenStreetMap'
+    tiles='CartoDB dark_matter'
 )
 
-# Add markers for affected regions (Updated Data)
+# Add markers for affected regions - HANYA 3 PROVINSI
 locations = [
-    {'name': 'Sumatera Utara', 'coords': [3.59, 98.67], 'casualties': 412, 'status': 'Lumpuh Total', 'color': 'red'},
-    {'name': 'Aceh', 'coords': [4.69, 96.74], 'casualties': 325, 'status': 'Terisolir', 'color': 'red'},
-    {'name': 'Sumatera Barat', 'coords': [-0.94, 100.41], 'casualties': 220, 'status': 'Banjir Bandang', 'color': 'red'},
-    {'name': 'Riau', 'coords': [0.50, 101.44], 'casualties': 7, 'status': 'Siaga 1 (Baru!)', 'color': 'orange'}
+    {'name': 'Sumatera Utara', 'coords': [1.49, 99.25], 'casualties': 430, 'status': 'Lumpuh Total', 'color': 'red'},
+    {'name': 'Aceh', 'coords': [4.69, 96.74], 'casualties': 314, 'status': 'Terisolir', 'color': 'red'},
+    {'name': 'Sumatera Barat', 'coords': [-0.30, 100.37], 'casualties': 220, 'status': 'Banjir Bandang', 'color': 'red'}
 ]
 
 for loc in locations:
-    # Determine marker color
-    marker_color = loc['color']
-    fill_color = '#D32F2F' if marker_color == 'red' else '#FFB300'
-    icon_color = 'red' if marker_color == 'red' else 'orange'
-    
+    # Semua marker merah untuk 3 provinsi
     folium.CircleMarker(
         location=loc['coords'],
-        radius=15 + (loc['casualties'] / 15),
+        radius=20 + (loc['casualties'] / 20),
         popup=f"<b>{loc['name']}</b><br>Status: {loc['status']}<br>Korban: {loc['casualties']}",
-        color='#FF4B4B',
+        color='red',
         fill=True,
-        fillColor='#FF4B4B',
+        fillColor='#D32F2F',
         fillOpacity=0.7,
         weight=2
     ).add_to(m)
@@ -341,25 +336,18 @@ for loc in locations:
     folium.Marker(
         location=loc['coords'],
         popup=f"<b>{loc['name']}</b><br>Status: {loc['status']}<br>Korban: {loc['casualties']}",
-        color=marker_color,
-        fill=True,
-        fillColor=fill_color,
-        fillOpacity=0.7,
-        weight=2
-    ).add_to(m)
-    
     folium.Marker(
         location=loc['coords'],
         popup=folium.Popup(f"<b>{loc['name']}</b><br>Status: {loc['status']}<br>Korban: {loc['casualties']}", max_width=250),
-        icon=folium.Icon(color=icon_color, icon='warning-sign')
+        icon=folium.Icon(color='red', icon='warning-sign')
     ).add_to(m)
 
 folium_static(m, width=1200, height=500)
 
 st.markdown("""
-    <div style="background-color: #FFF3E0; padding: 15px; border-radius: 5px; margin-top: 10px; border-left: 5px solid #FF9800; color: #424242;">
-    <strong>🆕 Perkembangan Baru:</strong> Riau (Rokan Hulu) mulai terdampak banjir kiriman dari Sumbar/Sumut. 
-    Marker kuning menunjukkan wilayah baru yang masuk zona siaga 1.
+    <div style="background-color: #FFEBEE; padding: 15px; border-radius: 5px; margin-top: 10px; border-left: 5px solid #B71C1C; color: #424242;">
+    <strong>📍 Catatan:</strong> Berdasarkan data resmi BNPB, bencana ini berdampak pada <strong>3 provinsi</strong>: 
+    Sumatera Utara (430 korban), Aceh (314 korban), dan Sumatera Barat (220 korban). Total: 964 meninggal, 264 hilang.
     </div>
     """, unsafe_allow_html=True)
 
@@ -377,7 +365,7 @@ Suatu bencana harus ditetapkan sebagai <strong>Bencana Nasional</strong> apabila
 <ol style="color: #424242; font-size: 15px; line-height: 2;">
 <li><strong>Korban Jiwa Massal:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 964 meninggal + 264 hilang = 1.228 korban</li>
 
-<li><strong>Dampak Lintas Provinsi:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 4 provinsi terdampak (Sumut, Aceh, Sumbar, Riau)</li>
+<li><strong>Dampak Lintas Provinsi:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 3 provinsi terdampak (Sumatera Utara, Aceh, Sumatera Barat)</li>
 
 <li><strong>Pemda Kewalahan:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Kapasitas APBD lokal (15/100) tidak mampu mengimbangi skala dampak (95/100)</li>
 
