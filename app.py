@@ -335,9 +335,6 @@ for loc in locations:
     
     folium.Marker(
         location=loc['coords'],
-        popup=f"<b>{loc['name']}</b><br>Status: {loc['status']}<br>Korban: {loc['casualties']}",
-    folium.Marker(
-        location=loc['coords'],
         popup=folium.Popup(f"<b>{loc['name']}</b><br>Status: {loc['status']}<br>Korban: {loc['casualties']}", max_width=250),
         icon=folium.Icon(color='red', icon='warning-sign')
     ).add_to(m)
