@@ -404,7 +404,6 @@ with col1:
     fig_impact.update_layout(template="plotly_white", height=400)
     fig_impact.update_traces(textposition='outside')
     st.plotly_chart(fig_impact, use_container_width=True)
-    st.plotly_chart(fig_pop, use_container_width=True)
 
 with col2:
     # Casualties by Status
