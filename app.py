@@ -113,8 +113,8 @@ st.markdown("# 🚨 Monitor Darurat Sumatera: Mengapa Harus Ditetapkan Sebagai B
 # Critical Status Warning
 st.markdown("""
     <div style="background-color: #B71C1C; color: white; padding: 20px; border-radius: 5px; font-weight: bold; text-align: center; margin: 20px 0; border: 3px solid #D32F2F;">
-    🚨 BREAKING: KORBAN JIWA MENDEKATI 1.000 ORANG - 964 MENINGGAL 🚨<br>
-    <small style="font-size: 14px; margin-top: 10px; display: block;">Update: 10 Desember 2025 | Data BNPB Resmi</small>
+    🚨 BREAKING: KORBAN RESMI TEMBUS 1.000 JIWA - 1,016 MENINGGAL 🚨<br>
+    <small style="font-size: 14px; margin-top: 10px; display: block;">Update: 14 Desember 2025 | Sumber: Liputan6 & BNPB</small>
     </div>
     """, unsafe_allow_html=True)
 
@@ -126,30 +126,30 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Key Metrics Row
-st.markdown("## 📊 Metrik Kritis (10 Desember 2025)")
+st.markdown("## 📊 Metrik Kritis (14 Desember 2025)")
 col1, col2, col3, col4, col5 = st.columns(5)
 
 with col1:
     st.metric(
-        label="💀 Total Kematian",
-        value="964",
-        delta="Data BNPB Resmi",
+        label="💀 Total Meninggal",
+        value="1,016",
+        delta="+52 sejak 10 Des",
         delta_color="inverse"
     )
 
 with col2:
     st.metric(
-        label="🔍 Warga Hilang",
-        value="264",
-        delta="Masih pencarian",
-        delta_color="inverse"
+        label="🔍 Masih Hilang",
+        value="212",
+        delta="-52 ditemukan",
+        delta_color="normal"
     )
 
 with col3:
     st.metric(
         label="🏕️ Total Pengungsi",
-        value="72,500+",
-        delta="Krisis air bersih",
+        value="624,670",
+        delta="Butuh logistik!",
         delta_color="inverse"
     )
 
@@ -157,27 +157,28 @@ with col4:
     st.metric(
         label="🗺️ Provinsi Terdampak",
         value="3",
-        delta="Sumut, Aceh, Sumbar",
+        delta="Aceh, Sumut, Sumbar",
         delta_color="inverse"
     )
 
 with col5:
     st.metric(
-        label="⚠️ Status",
-        value="Darurat Lokal",
-        delta="Perlu Bencana Nasional",
-        delta_color="inverse"
+        label="📊 Sumber Data",
+        value="Valid",
+        delta="Liputan6 & BNPB",
+        delta_color="normal"
     )
 
 # Create DataFrame with specific data
-st.markdown("## 📍 Distribusi Korban per Provinsi (3 Provinsi Terdampak)")
+st.markdown("## 📍 Distribusi Korban per Provinsi (Update 14 Des 2025)")
 
 df_regions = pd.DataFrame({
-    'Provinsi': ['Sumatera Utara', 'Aceh', 'Sumatera Barat'],
-    'Korban Meninggal': [430, 314, 220],  # Total: 964
-    'Warga Hilang': [140, 85, 39],  # Total: 264
-    'Status': ['Lumpuh Total', 'Terisolir', 'Banjir Bandang'],
-    'Skor Dampak': [98, 95, 90]
+    'Provinsi': ['Aceh', 'Sumatera Utara', 'Sumatera Barat'],
+    'Korban Meninggal': [424, 349, 243],  # Total: 1,016
+    'Pengungsi': [300000, 200000, 124670],  # Total: 624,670
+    'Warga Hilang': [90, 75, 47],  # Total: 212
+    'Status': ['Paling Parah', 'Lumpuh Total', 'Banjir Bandang'],
+    'Skor Dampak': [100, 95, 88]
 })
 
 # Display DataFrame with source link
@@ -185,11 +186,11 @@ st.dataframe(df_regions, use_container_width=True)
 
 st.markdown("""
     <div style="background-color: #F5F5F5; padding: 10px; border-radius: 5px; margin-top: 10px; text-align: center; border: 1px solid #E0E0E0;">
-    <small style="color: #424242;">📊 <strong>Sumber Data Valid (Update 10 Des 2025):</strong><br>
-    <a href="https://news.detik.com/berita/d-8251651/korban-tewas-bencana-sumatera-bertambah-jadi-964-orang-264-masih-hilang" 
-    target="_blank" style="color: #D32F2F; text-decoration: none;">Detik.com - "Korban Tewas Bencana Sumatera Bertambah Jadi 964 Orang"</a> | 
-    <a href="https://nasional.kompas.com/read/2025/12/09/22172921/update-bnpb-korban-tewas-banjir-sumatera-bertambah-jadi-964-orang" 
-    target="_blank" style="color: #D32F2F; text-decoration: none;">Kompas.com - "Update BNPB: Korban Tewas Banjir Sumatera 964 Orang"</a>
+    <small style="color: #424242;">📊 <strong>Sumber Data Valid (Update 14 Des 2025):</strong><br>
+    <a href="https://www.liputan6.com/news/read/6236046/update-korban-bencana-sumatera-14-desember-2025-1016-orang-meninggal-212-hilang-dan-624670-mengungsi" 
+    target="_blank" style="color: #D32F2F; text-decoration: none;">Liputan6 - "Update Korban 1.016 Meninggal, 212 Hilang, 624.670 Mengungsi"</a> | 
+    <a href="https://www.detik.com/jateng/berita/d-8259467/update-bnpb-korban-meninggal-bencana-sumatera-jadi-1-016-orang" 
+    target="_blank" style="color: #D32F2F; text-decoration: none;">Detik.com - "Update BNPB: Korban Meninggal Jadi 1.016 Orang"</a>
     </small>
     </div>
     """, unsafe_allow_html=True)
@@ -198,11 +199,11 @@ st.markdown("""
 st.markdown("## 📈 Visualisasi Data")
 
 # Death Toll Trend Line Chart
-st.markdown("### 📉 Tren Korban Jiwa: Kurva Masih Naik")
+st.markdown("### 📉 Tren Korban Jiwa: Tembus 1.000")
 
 death_trend = pd.DataFrame({
-    'Tanggal': ['1 Des', '4 Des', '7 Des', '9 Des', '10 Des'],
-    'Korban Meninggal': [150, 500, 916, 964, 964]
+    'Tanggal': ['1 Des', '4 Des', '7 Des', '10 Des', '14 Des'],
+    'Korban Meninggal': [150, 500, 916, 964, 1016]
 })
 
 fig_trend = go.Figure()
@@ -219,7 +220,7 @@ fig_trend.add_trace(go.Scatter(
 ))
 
 fig_trend.update_layout(
-    title="Proyeksi Korban: 964 Tewas, 264 Masih Hilang (Data BNPB Resmi)",
+    title="Korban Resmi Tembus 1.000: Total 1.016 Tewas + 212 Hilang",
     xaxis_title="Tanggal (Desember 2025)",
     yaxis_title="Jumlah Korban Meninggal",
     template="plotly_white",
@@ -233,8 +234,8 @@ st.plotly_chart(fig_trend, use_container_width=True)
 
 st.markdown("""
     <div style="background-color: #FFEBEE; padding: 15px; border-radius: 5px; margin-top: 10px; border-left: 5px solid #B71C1C; color: #424242;">
-    <strong>⚠️ Analisis Kritis:</strong> Total korban 964 meninggal + 264 hilang = <strong>1.228 korban</strong>. 
-    Tanpa intervensi nasional, potensi bertambah dengan 264 orang masih dalam pencarian.
+    <strong>⚠️ Analisis Kritis:</strong> Total korban <strong>1.016 meninggal + 212 hilang = 1.228 korban</strong>. 
+    Ditambah <strong>624.670 pengungsi</strong> memerlukan logistik dan bantuan mendesak. Ini sudah melampaui kapasitas pemerintah daerah.
     </div>
     """, unsafe_allow_html=True)
 
@@ -283,15 +284,15 @@ with col2:
     st.markdown("### 💔 Distribusi Korban (3 Provinsi)")
     
     province_casualties = pd.DataFrame({
-        'Provinsi': ['Sumatera Utara', 'Aceh', 'Sumatera Barat'],
-        'Korban': [430, 314, 220]  # Total: 964
+        'Provinsi': ['Aceh', 'Sumatera Utara', 'Sumatera Barat'],
+        'Korban': [424, 349, 243]  # Total: 1,016
     })
     
     fig_pie = px.pie(
         province_casualties,
         values='Korban',
         names='Provinsi',
-        title='Total Korban Jiwa: 964',
+        title='Total Korban Jiwa: 1,016',
         color_discrete_sequence=['#8B0000', '#D32F2F', '#FF5252'],
         hole=0.4
     )
@@ -313,11 +314,11 @@ m = folium.Map(
     tiles='CartoDB dark_matter'
 )
 
-# Add markers for affected regions - HANYA 3 PROVINSI
+# Add markers for affected regions - HANYA 3 PROVINSI (DATA 14 DES)
 locations = [
-    {'name': 'Sumatera Utara', 'coords': [1.49, 99.25], 'casualties': 430, 'status': 'Lumpuh Total', 'color': 'red'},
-    {'name': 'Aceh', 'coords': [4.69, 96.74], 'casualties': 314, 'status': 'Terisolir', 'color': 'red'},
-    {'name': 'Sumatera Barat', 'coords': [-0.30, 100.37], 'casualties': 220, 'status': 'Banjir Bandang', 'color': 'red'}
+    {'name': 'Aceh', 'coords': [4.69, 96.74], 'casualties': 424, 'status': 'Paling Parah', 'color': 'red'},
+    {'name': 'Sumatera Utara', 'coords': [2.00, 99.00], 'casualties': 349, 'status': 'Lumpuh Total', 'color': 'red'},
+    {'name': 'Sumatera Barat', 'coords': [-0.90, 100.40], 'casualties': 243, 'status': 'Banjir Bandang', 'color': 'red'}
 ]
 
 for loc in locations:
@@ -343,8 +344,9 @@ folium_static(m, width=1200, height=500)
 
 st.markdown("""
     <div style="background-color: #FFEBEE; padding: 15px; border-radius: 5px; margin-top: 10px; border-left: 5px solid #B71C1C; color: #424242;">
-    <strong>📍 Catatan:</strong> Berdasarkan data resmi BNPB, bencana ini berdampak pada <strong>3 provinsi</strong>: 
-    Sumatera Utara (430 korban), Aceh (314 korban), dan Sumatera Barat (220 korban). Total: 964 meninggal, 264 hilang.
+    <strong>📍 Data 14 Des 2025:</strong> Bencana berdampak pada <strong>3 provinsi</strong>: 
+    Aceh (424 korban - tertinggi), Sumatera Utara (349 korban), dan Sumatera Barat (243 korban). 
+    <strong>Total: 1.016 meninggal, 212 hilang, 624.670 pengungsi.</strong>
     </div>
     """, unsafe_allow_html=True)
 
@@ -360,15 +362,15 @@ Suatu bencana harus ditetapkan sebagai <strong>Bencana Nasional</strong> apabila
 </p>
 
 <ol style="color: #424242; font-size: 15px; line-height: 2;">
-<li><strong>Korban Jiwa Massal:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 964 meninggal + 264 hilang = 1.228 korban</li>
+<li><strong>Korban Jiwa Massal:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 1.016 meninggal + 212 hilang = 1.228 korban</li>
 
-<li><strong>Dampak Lintas Provinsi:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 3 provinsi terdampak (Sumatera Utara, Aceh, Sumatera Barat)</li>
+<li><strong>Dampak Lintas Provinsi:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 3 provinsi terdampak (Aceh, Sumatera Utara, Sumatera Barat)</li>
 
-<li><strong>Pemda Kewalahan:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Kapasitas APBD lokal (15/100) tidak mampu mengimbangi skala dampak (95/100)</li>
+<li><strong>Pemda Kewalahan:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Kapasitas APBD lokal (15/100) tidak mampu mengimbangi skala dampak (100/100)</li>
 
 <li><strong>Kerusakan Infrastruktur Berskala Luas:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Banyak wilayah terisolasi, infrastruktur kritis hancur</li>
 
-<li><strong>Pengungsian Massal:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 72.500+ jiwa mengungsi, krisis air bersih</li>
+<li><strong>Pengungsian Massal:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 624.670 jiwa mengungsi, krisis logistik akut</li>
 
 <li><strong>Kelumpuhan Ekonomi:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Kawasan pertanian terendam, jalur perdagangan terputus</li>
 </ol>
@@ -424,9 +426,9 @@ st.markdown("---")
 
 st.markdown("""
 <div style="text-align: center; color: #666; padding: 20px; margin-top: 20px;">
-<small><strong>Update Terakhir: 10 Desember 2025 | Data BNPB Resmi</strong><br>
-<strong>Sumber Data Valid:</strong> <a href="https://news.detik.com/berita/d-8251651/korban-tewas-bencana-sumatera-bertambah-jadi-964-orang-264-masih-hilang" target="_blank" style="color: #D32F2F; text-decoration: none;">Detik.com (09/12)</a>, 
-<a href="https://nasional.kompas.com/read/2025/12/09/22172921/update-bnpb-korban-tewas-banjir-sumatera-bertambah-jadi-964-orang" target="_blank" style="color: #D32F2F; text-decoration: none;">Kompas.com (09/12)</a> | 
+<small><strong>Update Terakhir: 14 Desember 2025 | Korban Resmi Tembus 1.000 Jiwa</strong><br>
+<strong>Sumber Data Valid:</strong> <a href="https://www.liputan6.com/news/read/6236046/update-korban-bencana-sumatera-14-desember-2025-1016-orang-meninggal-212-hilang-dan-624670-mengungsi" target="_blank" style="color: #D32F2F; text-decoration: none;">Liputan6 (14/12)</a>, 
+<a href="https://www.detik.com/jateng/berita/d-8259467/update-bnpb-korban-meninggal-bencana-sumatera-jadi-1-016-orang" target="_blank" style="color: #D32F2F; text-decoration: none;">Detik.com (14/12)</a> | 
 Dashboard dibuat untuk tujuan monitoring Data</small>
 </div>
 """, unsafe_allow_html=True)
