@@ -427,7 +427,7 @@ st.markdown("""
 <small><strong>Update Terakhir: 17 Desember 2025 | 1.053 Meninggal, 200 Hilang, 606k Pengungsi</strong><br>
 <strong>Sumber Data Valid:</strong> <a href="https://www.kompas.com/sumatera-utara/read/2025/12/17/053000688/update-banjir-sumatera-17-desember--tewas-1.053-jiwa-hilang-200" target="_blank" style="color: #D32F2F; text-decoration: none;">Kompas.com (17/12)</a>, 
 <a href="https://news.detik.com/berita/d-8262977/terus-bertambah-korban-meninggal-bencana-sumatera-kini-1-053-orang" target="_blank" style="color: #D32F2F; text-decoration: none;">Detik.com (17/12)</a> | 
-Dashboard dibuat untuk tujuan monitoring Data | 🟢 <strong>Always Online via UptimeRobot</strong>
+Dashboard dibuat untuk tujuan monitoring Data
 </small>
 </div>
 """, unsafe_allow_html=True)
