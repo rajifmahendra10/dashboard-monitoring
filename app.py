@@ -112,7 +112,7 @@ st.markdown("# 🚨 Monitor Darurat Sumatera: Mengapa Harus Ditetapkan Sebagai B
 # Critical Status Warning
 st.markdown("""
     <div style="background-color: #B71C1C; color: white; padding: 20px; border-radius: 5px; font-weight: bold; text-align: center; margin: 20px 0; border: 3px solid #D32F2F;">
-    🚨 BREAKING: KORBAN TEMBUS 1.053 JIWA + 147 RIBU RUMAH HANCUR 🚨<br>
+    🚨 BREAKING: KORBAN RESMI TEMBUS 1.053 JIWA - 1,053 MENINGGAL 🚨<br>
     <small style="font-size: 14px; margin-top: 10px; display: block;">Update: 17 Desember 2025 | Sumber: Kompas & Detik</small>
     </div>
     """, unsafe_allow_html=True)
@@ -162,10 +162,10 @@ with col4:
 
 with col5:
     st.metric(
-        label="🏚️ Rumah Rusak",
-        value="147,217",
-        delta="Data BNPB",
-        delta_color="inverse"
+        label="📊 Sumber Data",
+        value="Valid",
+        delta="Kompas & Detik",
+        delta_color="normal"
     )
 
 # Create DataFrame with specific data
@@ -187,7 +187,7 @@ st.markdown("""
     <div style="background-color: #F5F5F5; padding: 10px; border-radius: 5px; margin-top: 10px; text-align: center; border: 1px solid #E0E0E0;">
     <small style="color: #424242;">📊 <strong>Sumber Data Valid (Update 17 Des 2025):</strong><br>
     <a href="https://www.kompas.com/sumatera-utara/read/2025/12/17/053000688/update-banjir-sumatera-17-desember--tewas-1.053-jiwa-hilang-200" 
-    target="_blank" style="color: #D32F2F; text-decoration: none;">Kompas.com - "Update Banjir Sumatera: 1.053 Tewas, 200 Hilang, 147k Rumah Rusak"</a> | 
+    target="_blank" style="color: #D32F2F; text-decoration: none;">Kompas.com - "Update Banjir Sumatera: 1.053 Tewas, 200 Hilang, 606k Pengungsi"</a> | 
     <a href="https://news.detik.com/berita/d-8262977/terus-bertambah-korban-meninggal-bencana-sumatera-kini-1-053-orang" 
     target="_blank" style="color: #D32F2F; text-decoration: none;">Detik.com - "Terus Bertambah, Korban Meninggal Bencana Sumatera Kini 1.053 Orang"</a>
     </small>
@@ -234,7 +234,7 @@ st.plotly_chart(fig_trend, use_container_width=True)
 st.markdown("""
     <div style="background-color: #FFEBEE; padding: 15px; border-radius: 5px; margin-top: 10px; border-left: 5px solid #B71C1C; color: #424242;">
     <strong>⚠️ Analisis Kritis:</strong> Total korban <strong>1.053 meninggal + 200 hilang = 1.253 korban</strong>. 
-    Ditambah <strong>606.040 pengungsi + 147.217 rumah hancur</strong> memerlukan logistik dan bantuan mendesak. Ini sudah melampaui kapasitas pemerintah daerah.
+    Ditambah <strong>606.040 pengungsi</strong> memerlukan logistik dan bantuan mendesak. Ini sudah melampaui kapasitas pemerintah daerah.
     </div>
     """, unsafe_allow_html=True)
 
@@ -345,7 +345,7 @@ st.markdown("""
     <div style="background-color: #FFEBEE; padding: 15px; border-radius: 5px; margin-top: 10px; border-left: 5px solid #B71C1C; color: #424242;">
     <strong>📍 Data 17 Des 2025:</strong> Bencana berdampak pada <strong>3 provinsi</strong>: 
     Aceh (449 korban - tertinggi), Sumatera Utara (360 korban), dan Sumatera Barat (244 korban). 
-    <strong>Total: 1.053 meninggal, 200 hilang, 606.040 pengungsi, 147.217 rumah rusak.</strong>
+    <strong>Total: 1.053 meninggal, 200 hilang, 606.040 pengungsi.</strong>
     </div>
     """, unsafe_allow_html=True)
 
@@ -367,7 +367,7 @@ Suatu bencana harus ditetapkan sebagai <strong>Bencana Nasional</strong> apabila
 
 <li><strong>Pemda Kewalahan:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Kapasitas APBD lokal (15/100) tidak mampu mengimbangi skala dampak (100/100)</li>
 
-<li><strong>Kerusakan Infrastruktur Berskala Luas:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 147.217 rumah hancur, infrastruktur kritis lumpuh</li>
+<li><strong>Kerusakan Infrastruktur Berskala Luas:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - Banyak wilayah terisolasi, infrastruktur kritis hancur</li>
 
 <li><strong>Pengungsian Massal:</strong> ✅ <span style="color: #4CAF50;">TERPENUHI</span> - 606.040 jiwa mengungsi, krisis logistik akut</li>
 
@@ -424,10 +424,10 @@ st.markdown("---")
 
 st.markdown("""
 <div style="text-align: center; color: #666; padding: 20px; margin-top: 20px;">
-<small><strong>Update Terakhir: 17 Desember 2025 | Korban Tembus 1.053 Jiwa</strong><br>
+<small><strong>Update Terakhir: 17 Desember 2025 | 1.053 Meninggal, 200 Hilang, 606k Pengungsi</strong><br>
 <strong>Sumber Data Valid:</strong> <a href="https://www.kompas.com/sumatera-utara/read/2025/12/17/053000688/update-banjir-sumatera-17-desember--tewas-1.053-jiwa-hilang-200" target="_blank" style="color: #D32F2F; text-decoration: none;">Kompas.com (17/12)</a>, 
 <a href="https://news.detik.com/berita/d-8262977/terus-bertambah-korban-meninggal-bencana-sumatera-kini-1-053-orang" target="_blank" style="color: #D32F2F; text-decoration: none;">Detik.com (17/12)</a> | 
-Dashboard dibuat untuk tujuan monitoring Data 
+Dashboard dibuat untuk tujuan monitoring Data | 🟢 <strong>Always Online via UptimeRobot</strong>
 </small>
 </div>
 """, unsafe_allow_html=True)
